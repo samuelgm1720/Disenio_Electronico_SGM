@@ -1,6 +1,6 @@
 # Prácticas de Diseño Electrónico
 
-**Autor:** Samuel Gil
+**Autor:** Samuel Gil Morales
 
 Prácticas de laboratorio con un ESP32 (TTGO T-Display) y un sensor DHT11 conectados a la plataforma IoT [Ubidots](https://ubidots.com/). El ESP32 mide temperatura y humedad, las muestra en su pantalla y las publica en la nube; desde el dashboard de Ubidots se controlan dos interruptores que se reflejan en la pantalla del dispositivo.
 
