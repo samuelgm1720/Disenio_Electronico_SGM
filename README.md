@@ -1,0 +1,55 @@
+# Prácticas de Diseño Electrónico
+
+**Autor:** Samuel Gil
+
+Prácticas de laboratorio con un ESP32 (TTGO T-Display) y un sensor DHT11 conectados a la plataforma IoT [Ubidots](https://ubidots.com/). El ESP32 mide temperatura y humedad, las muestra en su pantalla y las publica en la nube; desde el dashboard de Ubidots se controlan dos interruptores que se reflejan en la pantalla del dispositivo.
+
+## Contenido
+
+| Práctica | Qué se hizo | Archivos |
+|---|---|---|
+| [Práctica 1](practica-1/) | Envío de temperatura, humedad y lectura del ADC a Ubidots, y dashboard con termómetro y medidor | Informe en PDF y capturas |
+| [Práctica 2](practica-2/) | Control desde Ubidots: dos switches del dashboard encienden indicadores en la pantalla del ESP32 | Informe en PDF, código y fotos |
+
+## Hardware
+
+- ESP32 TTGO T-Display (pantalla TFT integrada)
+- Sensor de temperatura y humedad DHT11, con la señal de datos en el GPIO 27
+- Entrada analógica en el GPIO 33
+
+## Librerías
+
+| Librería | Uso | Repositorio |
+|---|---|---|
+| `UbidotsEsp32Mqtt` | Conexión WiFi y MQTT con Ubidots | [ubidots/esp32-mqtt](https://github.com/ubidots/esp32-mqtt) |
+| `PubSubClient` | Dependencia de la librería de Ubidots | [knolleary/pubsubclient](https://github.com/knolleary/pubsubclient) |
+| `DHT sensor library` | Lectura del DHT11 | [adafruit/DHT-sensor-library](https://github.com/adafruit/DHT-sensor-library) |
+| `TFT_eSPI` | Manejo de la pantalla TFT | [Bodmer/TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) |
+
+`TFT_eSPI` se configura por archivo: en `User_Setup_Select.h` hay que dejar activa la línea `#include <User_Setups/Setup25_TTGO_T_Display.h>`, que es la configuración que trae la librería para esta placa.
+
+## Cómo ejecutar el código
+
+1. Instalar el soporte de ESP32 en el Arduino IDE y las librerías de la tabla.
+2. Abrir `practica-2/Practica2/Practica2.ino`.
+3. Reemplazar `TU_TOKEN_DE_UBIDOTS` por el token de la cuenta propia de Ubidots y ajustar `WIFI_SSID` y `WIFI_PASS`.
+4. Cargar el programa en la placa.
+
+> El token de Ubidots es una credencial: no se sube al repositorio. Por eso aparece como marcador en el código y tapado en el informe de la Práctica 2.
+
+## Estructura
+
+```
+.
+├── README.md
+├── practica-1/
+│   ├── README.md
+│   ├── Practica1_SamuelGil.pdf
+│   └── img/
+└── practica-2/
+    ├── README.md
+    ├── Practica2_SamuelGil.pdf
+    ├── Practica2/
+    │   └── Practica2.ino
+    └── img/
+```
